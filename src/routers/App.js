@@ -1,12 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
+import { hot } from 'react-hot-loader';
+// import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -23,4 +24,5 @@ function App() {
   );
 }
 
-export default App;
+export default (process.env.NODE_ENV === 'development' ? hot(module)(App) : App);
+// export default App;
