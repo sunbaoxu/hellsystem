@@ -1,10 +1,7 @@
 import * as React from 'react';
-// import './index.scss';
+import './index.scss';
 import { Layout ,Menu, Icon, Button ,Modal} from 'antd';
 import {Switch,withRouter} from 'react-router-dom';
-// import AsyncLoader from '$AsyncLoader'; 
-// import LoginBox from '$view/login';
-// import filter  from '$filter';
 
 const { Header, Sider, Content } = Layout;
 const SubMenu = Menu.SubMenu;
@@ -13,7 +10,7 @@ class ReactBox extends React.Component{
   constructor(props) {
     super(props);
     let arr = [],
-        rootSubmenuKeys=['router', 'loop', 'around'],
+        rootSubmenuKeys=['notepad', 'infernal', 'system'],
         openKeys = [],
         async =false;
         arr[0] = props.location.pathname;
@@ -39,7 +36,7 @@ class ReactBox extends React.Component{
       openKeys,
       loginAsync : false,
       closeAsync : false,
-      userObj : localStorage.getItem('react-user-obj') ? JSON.parse(localStorage.getItem('react-user-obj')):"",
+      userObj : sessionStorage.getItem('bx-hell-system-obj') ? JSON.parse(sessionStorage.getItem('bx-hell-system-obj')):"",
 
     };
   }
@@ -84,19 +81,19 @@ class ReactBox extends React.Component{
         <Layout className="antd-wrap">
           <Header className="header-wrap g-text-ove1">
             <section className="left-box">
-              {/* <img src={require('$img/back/logo.png')} alt="" onClick={()=>{
+              <img src={require('$imgs/logo.png')} alt="" onClick={()=>{
                 this.props.history.push('/');
-              }}/> */}
+              }}/>
               <span onClick={()=>{
                 window.location.href = 'http://10.15.198.18:8090/pages/viewpage.action?pageId=3932983'
-              }} >create-react-app 脚手架学习及运用</span>
+              }} >地府管理系统</span>
             </section>
             <section className="rig-box"> 
-              {/* <h4 onClick={()=>{
+              <h4 onClick={()=>{
                 let obj = _this.userObj ? {closeAsync:true}:{loginAsync:true};
 
                 this.setState(obj)
-              }}>{_this.userObj ? `${filter.phoneHid(_this.userObj.loginPhone)},点击退出` : '点击登录！送VIP' }</h4> */}
+              }}>{_this.userObj ? `${_this.userObj.username},点击退出` : '点击登录！送VIP' }</h4>
               <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
                 <Icon type={_this.collapsed ? 'menu-unfold' : 'menu-fold'} />
               </Button>
@@ -120,71 +117,70 @@ class ReactBox extends React.Component{
                   this.onOpenChange(res)
                 }}
               >
-              {/* jsx */}
-                <Menu.Item key="/react/jsx">
+                <Menu.Item key="/">
                   <Icon type="file" />
-                  <span>JSX 介绍</span>
+                  <span>首页</span>
                 </Menu.Item>
-                {/* 路由跳转 */}
-                <SubMenu key="router" title={<span><Icon type="bars" /><span>路由跳转</span></span>} visible={true}>
-                  <Menu.Item key="/react/router/normal">
+                <SubMenu 
+                  key="notepad" 
+                  title={
+                    <span><Icon type="bars" /><span>生死薄</span></span>
+                  } 
+                  visible={true}
+                >
+                  <Menu.Item key="/notepad/userList">
                     <Icon type="file" />
-                    <span>使用路由</span>
+                    <span>用户管理</span>
                   </Menu.Item>
-                  <Menu.Item key="/react/router/nesting">
+                  <Menu.Item key="/notepad/dataList">
                     <Icon type="file" />
-                    <span>嵌套路由</span>
+                    <span>数据同步</span>
                   </Menu.Item>
                 </SubMenu>
-                {/* 遍历循环 */}
-                <SubMenu key="loop" title={<span><Icon type="bars" /><span>遍历循环</span></span>} visible={true}>
-                  <Menu.Item key="/react/loop/arr">
+                <Menu.Item key="/hookList">
+                  <Icon type="file" />
+                  <span>勾魂管理</span>
+                </Menu.Item>
+                <Menu.Item key="/trialList">
+                  <Icon type="file" />
+                  <span>阎王殿审判记录</span>
+                </Menu.Item>
+                <SubMenu key="infernal" title={<span><Icon type="bars" /><span>十八层地狱</span></span>} visible={true}>
+                  <Menu.Item key="/infernal/equipment">
                     <Icon type="file" />
-                    <span>数组渲染</span>
+                    <span>设备管理</span>
                   </Menu.Item>
-                  <Menu.Item key="/react/loop/condition">
+                  <Menu.Item key="/infernal/task">
                     <Icon type="file" />
-                    <span>条件渲染</span>
+                    <span>作业流程</span>
+                  </Menu.Item>
+                  <Menu.Item key="/react/tube">
+                    <Icon type="file" />
+                    <span>用户管理</span>
                   </Menu.Item>
                 </SubMenu>
-                {/* 前后端 */}
-                <SubMenu key="around" title={<span><Icon type="bars" /><span>前后端</span></span>} visible={true}>
-                  {/* 前后分离 */}
-                  <Menu.Item key="/react/around/separate">
+                <Menu.Item key="/reincarnation">
+                  <Icon type="file" />
+                  <span>六道轮回</span>
+                </Menu.Item>
+                <Menu.Item key="/money">
+                  <Icon type="file" />
+                  <span>冥币管理</span>
+                </Menu.Item>
+                <Menu.Item key="/journal">
+                  <Icon type="file" />
+                  <span>日志管理</span>
+                </Menu.Item>
+                <SubMenu key="system" title={<span><Icon type="bars" /><span>系统管理</span></span>} visible={true}>
+                  <Menu.Item key="/system/user">
                     <Icon type="file" />
-                    <span>前后分离</span>
+                    <span>管理员</span>
                   </Menu.Item>
-                  {/* 请求接口 */}
-                  <SubMenu key="ajax" title={<span><Icon type="bars" /><span>请求接口</span></span>} visible={true}>
-                    <Menu.Item key="/react/around/ajax">
-                      <Icon type="file" />
-                      <span>jquery调用接口</span>
-                    </Menu.Item>
-                    <Menu.Item key="/react/around/vue">
-                      <Icon type="file" />
-                      <span>vue调用接口</span>
-                    </Menu.Item>
-                    <Menu.Item key="/react/around/react">
-                      <Icon type="file" />
-                      <span>react调用接口</span>
-                    </Menu.Item>
-                  </SubMenu>
-                  {/* axios,fetch */}
-                  <Menu.Item key="/react/around/axios">
+                  <Menu.Item key="/system/role">
                     <Icon type="file" />
-                    <span>axios,fetch</span>
+                    <span>角色权限</span>
                   </Menu.Item>
                 </SubMenu>
-                {/* mvvm */}
-                <Menu.Item key="/react/mvvm">
-                  <Icon type="file" />
-                  <span>数据绑定</span>
-                </Menu.Item>
-                {/* dom */}
-                <Menu.Item key="/react/dom">
-                  <Icon type="file" />
-                  <span>dom成本</span>
-                </Menu.Item>
               </Menu>
             </Sider>
             <Content className="react-content-wrap">
@@ -298,8 +294,8 @@ class ReactBox extends React.Component{
           title="退出登录！！！"
           visible={_this.closeAsync}
           onOk={()=>{
-            localStorage.removeItem('react-user-obj');
-            this.setState({closeAsync:false,userObj:''})
+            sessionStorage.removeItem('bx-hell-system-obj');
+            this.props.history.push('/login')
           }}
           onCancel={()=>{
             this.setState({closeAsync:false})

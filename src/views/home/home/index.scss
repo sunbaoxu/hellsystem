@@ -1,0 +1,70 @@
+.react-wrap{
+  position: fixed;
+  left:0;
+  top:0;
+  bottom: 0;
+  right: 0;
+}
+.antd-wrap{
+  height: 100%;
+  .header-wrap{
+    color:#fff;
+    font-size: 24px;
+    padding:0;
+    height: auto;
+    display: flex;
+    .left-box{
+      flex:1;
+      display: flex;
+      img{
+        width: 150px;
+        height: 69px;
+      }
+    }
+    .rig-box{
+      display: flex;
+      h4{
+        margin: 0;
+        display: flex;
+        align-items: center;
+        padding-right: 24px;
+        font-size: 16px;
+        color:#fff;
+      }
+    }
+    img{
+      width: 200px;
+      margin-right: 24px;
+    }
+    button{
+      float: right;
+      margin-top: 28px;
+      margin-right: 20px;
+    }
+  }
+}
+.react-content-wrap{
+  padding:20px;
+}
+
+
+
+// .c-react-home-wrap{
+//   height: 100%;
+//   overflow-x: auto;
+//   h2{
+//     text-align: center;
+//     font-size: 28px;
+//   }
+//   .title{
+//     font-size: 20px;
+//   }
+//   .list-title{
+//     font-size: 20px;
+//     padding:10px 0;
+//   }
+//   img{
+//     width: 600px;
+//     margin-left: 25px;
+//   }
+// }
