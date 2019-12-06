@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import '@/assets/css/reset.scss';
 import '@/assets/css/common.scss';
+import 'antd/dist/antd.css';
 import App from './routers/App';
 import * as serviceWorker from './serviceWorker';
 

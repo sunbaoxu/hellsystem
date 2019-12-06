@@ -34,12 +34,15 @@
     ]
   },
   "devDependencies": {
+    "@hot-loader/react-dom": "^16.11.0+4.12.16",
+    "antd": "^3.26.0",
     "babel-plugin-import": "^1.13.0",
     "customize-cra": "^0.9.1",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
+    "loadable-components": "^2.2.3",
     "node-sass": "^4.13.0",
     "react-app-rewired": "^2.1.5",
-    "react-hot-loader": "^4.5.3"
+    "react-router-dom": "^5.1.2"
   }
 }

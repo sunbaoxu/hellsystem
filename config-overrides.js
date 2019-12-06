@@ -9,7 +9,7 @@ module.exports = override(
     '@': path.resolve(__dirname, 'src/'),
     '$views': path.resolve(__dirname, 'src/views/'),
     '$imgs': path.resolve(__dirname, 'src/assets/img/'),
-    // 'react-dom': '@hot-loader/react-dom'
+    'react-dom': '@hot-loader/react-dom'
   }),
   fixBabelImports('import', {
     libraryName: 'antd',
