@@ -23,7 +23,7 @@ class Reincarnation extends React.Component{
     // let _this = this.state;
     return (
       <div className="reincar-nation-wrap" >
-       fasasdfadsfafdasfdsdaf
+       六道轮回
       </div>
     );
   }

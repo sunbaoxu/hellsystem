@@ -17,7 +17,7 @@ class DynamicRule extends React.Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         sessionStorage.setItem('bx-hell-system-obj',JSON.stringify(values));
-        this.props.history.push('/infernal')
+        this.props.history.push('/infernal/home')
       }
     });
   };

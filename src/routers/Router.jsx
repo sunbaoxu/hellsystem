@@ -1,5 +1,4 @@
 import * as React from 'react';
-// import './index.scss';
 import { Layout, Menu, Icon } from 'antd';
 import { Switch ,withRouter,Route} from 'react-router-dom';
 import loadable from 'loadable-components'
@@ -8,6 +7,21 @@ const SubMenu = Menu.SubMenu;
 const { Sider, Content } = Layout;
 
 const Reincarnation = loadable (()=>import('@/views/reincarnation'));
+const UserList = loadable (()=>import('@/views/notepad/userList'));
+const DataList = loadable (()=>import('@/views/notepad/dataList'));
+
+
+const HookList = loadable (()=>import('@/views/hookList'));
+const TrialList = loadable (()=>import('@/views/trialList'));
+
+
+
+const Money = loadable (()=>import('@/views/money'));
+const Journal = loadable (()=>import('@/views/journal'));
+const SystemUser = loadable (()=>import('@/views/system/user'));
+const SystemRole = loadable (()=>import('@/views/system/role'));
+
+
 const Home = loadable (()=>import('@/views/home/home'));
 
 class RouterBox extends React.Component {
@@ -115,20 +129,20 @@ class RouterBox extends React.Component {
               }
               visible={true}
             >
-              <Menu.Item key="/notepad/userList">
+              <Menu.Item key="/infernal/notepad/userList">
                 <Icon type="file" />
                 <span>用户管理</span>
               </Menu.Item>
-              <Menu.Item key="/notepad/dataList">
+              <Menu.Item key="/infernal/notepad/dataList">
                 <Icon type="file" />
                 <span>数据同步</span>
               </Menu.Item>
             </SubMenu>
-            <Menu.Item key="/hookList">
+            <Menu.Item key="/infernal/hookList">
               <Icon type="file" />
               <span>勾魂管理</span>
             </Menu.Item>
-            <Menu.Item key="/trialList">
+            <Menu.Item key="/infernal/trialList">
               <Icon type="file" />
               <span>阎王殿审判记录</span>
             </Menu.Item>
@@ -146,24 +160,24 @@ class RouterBox extends React.Component {
                 <span>用户管理</span>
               </Menu.Item>
             </SubMenu>
-            <Menu.Item key="/reincarnation">
+            <Menu.Item key="/infernal/reincarnation">
               <Icon type="file" />
               <span>六道轮回</span>
             </Menu.Item>
-            <Menu.Item key="/money">
+            <Menu.Item key="/infernal/money">
               <Icon type="file" />
               <span>冥币管理</span>
             </Menu.Item>
-            <Menu.Item key="/journal">
+            <Menu.Item key="/infernal/journal">
               <Icon type="file" />
               <span>日志管理</span>
             </Menu.Item>
             <SubMenu key="system" title={<span><Icon type="bars" /><span>系统管理</span></span>} visible={true}>
-              <Menu.Item key="/system/user">
+              <Menu.Item key="/infernal/system/user">
                 <Icon type="file" />
                 <span>管理员</span>
               </Menu.Item>
-              <Menu.Item key="/system/role">
+              <Menu.Item key="/infernal/system/role">
                 <Icon type="file" />
                 <span>角色权限</span>
               </Menu.Item>
@@ -173,79 +187,26 @@ class RouterBox extends React.Component {
         <Content className="react-content-wrap">
           <Switch>
             {/* 首页 */}
-            <Route
-                  exact
-                  path="/infernal/home"
-                  component={Home}
-                />
-            {/* jsx */}
-            <Route path="/reincarnation" component={Reincarnation}/>
-            {/* 正常路由 */}
-            {/* <Route
-                  exact
-                  path="/react/router/normal"
-                  component={
-                    AsyncLoader (() => import('$view/react/router/normal') )
-                  }
-                /> */}
-            {/* 嵌套路由 */}
-            {/* <Route
-                  exact
-                  path="/react/router/nesting"
-                  component={
-                    AsyncLoader (() => import('$view/react/router/nesting') )
-                  }
-                />   */}
-            {/* 数组渲染 */}
-            {/* <Route
-                  exact
-                  path="/react/loop/arr"
-                  component={
-                    AsyncLoader (() => import('$view/react/loop/arr') )
-                  }
-                />   */}
-            {/* 判断渲染 */}
-            {/* <Route
-                  exact
-                  path="/react/loop/condition"
-                  component={
-                    AsyncLoader (() => import('$view/react/loop/condition') )
-                  }
-                />   */}
-            {/* 前后分离 */}
-            {/* <Route
-                  exact
-                  path="/react/around/separate"
-                  component={
-                    AsyncLoader (() => import('$view/react/around/around') )
-                  }
-                />   */}
-            {/* axios，fetch */}
-            {/* <Route
-                  exact
-                  path="/react/around/axios"
-                  component={
-                    AsyncLoader (() => import('$view/react/around/axios') )
-                  }
-                />   */}
-            {/* ajax请求接口 */}
-            {/* <Route
-                  exact
-                  path="/react/around/ajax"
-                  component={
-                    AsyncLoader (() => import('$view/react/around/ajax') )
-                  }
-                />  */}
-            {/* vue请求接口 */}
-            {/* <Route
-                  exact
-                  path="/react/around/vue"
-                  component={
-                    AsyncLoader (() => import('$view/react/around/vue') )
-                  }
-                />  */}
-            {/* 错误路由 404  */}
+            <Route exact path="/infernal/home" component={Home}/>
 
+            <Route exact path="/infernal/notepad/userList" component={UserList}/>
+            <Route exact path="/infernal/notepad/dataList" component={DataList}/>
+
+
+            <Route exact path="/infernal/hookList" component={HookList}/>
+            <Route exact path="/infernal/trialList" component={TrialList}/>
+
+
+
+            <Route exact path="/infernal/money" component={Money}/>
+            <Route exact path="/infernal/journal" component={Journal}/>
+            <Route exact path="/infernal/system/user" component={SystemUser}/>
+            <Route exact path="/infernal/system/role" component={SystemRole}/>
+            {/* 六道轮回 */}
+            <Route path="/infernal/reincarnation" component={Reincarnation}/>
+            
+            {/* 错误路由 404  */}
+            
             {/* <Redirect  to={{pathname: '/404'}} /> */}
           </Switch>
         </Content>
