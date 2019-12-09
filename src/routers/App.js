@@ -8,7 +8,7 @@ const Login = loadable (()=>import('@/views/home/login'));
 
 function App() {
   return (
-    <Router>
+    <Router basename="/hellsystem">
       <Route exact path="/login" component={Login}></Route>
       <Route path="/" component={Home}></Route>
     </Router>
