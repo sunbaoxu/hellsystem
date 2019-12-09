@@ -187,21 +187,21 @@ class RouterBox extends React.Component {
         <Content className="react-content-wrap">
           <Switch>
             {/* 首页 */}
-            <Route exact path="/infernal/home" component={Home}/>
+            <Route  path="/infernal/home" component={Home}/>
 
-            <Route exact path="/infernal/notepad/userList" component={UserList}/>
-            <Route exact path="/infernal/notepad/dataList" component={DataList}/>
-
-
-            <Route exact path="/infernal/hookList" component={HookList}/>
-            <Route exact path="/infernal/trialList" component={TrialList}/>
+            <Route  path="/infernal/notepad/userList" component={UserList}/>
+            <Route  path="/infernal/notepad/dataList" component={DataList}/>
 
 
+            <Route  path="/infernal/hookList" component={HookList}/>
+            <Route  path="/infernal/trialList" component={TrialList}/>
 
-            <Route exact path="/infernal/money" component={Money}/>
-            <Route exact path="/infernal/journal" component={Journal}/>
-            <Route exact path="/infernal/system/user" component={SystemUser}/>
-            <Route exact path="/infernal/system/role" component={SystemRole}/>
+
+
+            <Route  path="/infernal/money" component={Money}/>
+            <Route  path="/infernal/journal" component={Journal}/>
+            <Route  path="/infernal/system/user" component={SystemUser}/>
+            <Route  path="/infernal/system/role" component={SystemRole}/>
             {/* 六道轮回 */}
             <Route path="/infernal/reincarnation" component={Reincarnation}/>
             
