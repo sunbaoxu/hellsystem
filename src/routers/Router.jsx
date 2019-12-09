@@ -155,7 +155,7 @@ class RouterBox extends React.Component {
                 <Icon type="file" />
                 <span>作业流程</span>
               </Menu.Item>
-              <Menu.Item key="/react/tube">
+              <Menu.Item key="/infernal/tube">
                 <Icon type="file" />
                 <span>用户管理</span>
               </Menu.Item>
