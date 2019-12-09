@@ -8,6 +8,7 @@ const SubMenu = Menu.SubMenu;
 const { Sider, Content } = Layout;
 
 const Reincarnation = loadable (()=>import('@/views/reincarnation'));
+const Home = loadable (()=>import('@/views/home/home'));
 
 class RouterBox extends React.Component {
   constructor(props) {
@@ -103,7 +104,7 @@ class RouterBox extends React.Component {
               this.onOpenChange(res)
             }}
           >
-            <Menu.Item key="/">
+            <Menu.Item key="/infernal/home">
               <Icon type="file" />
               <span>首页</span>
             </Menu.Item>
@@ -172,13 +173,11 @@ class RouterBox extends React.Component {
         <Content className="react-content-wrap">
           <Switch>
             {/* 首页 */}
-            {/* <Route
+            <Route
                   exact
-                  path="/react"
-                  component={
-                    AsyncLoader (() => import('$view/react/home') )
-                  }
-                /> */}
+                  path="/infernal/home"
+                  component={Home}
+                />
             {/* jsx */}
             <Route path="/reincarnation" component={Reincarnation}/>
             {/* 正常路由 */}
