@@ -2,8 +2,8 @@ const { override, fixBabelImports, addDecoratorsLegacy, addLessLoader, addWebpac
 const rewireReactHotLoader = require('react-app-rewire-hot-loader');
 
 const path = require('path');
-const paths = require('react-scripts/config/paths');
-paths.appBuild = path.join(path.dirname(paths.appBuild), 'hell-system-dist');
+// const paths = require('react-scripts/config/paths');
+// paths.appBuild = path.join(path.dirname(paths.appBuild), 'hell-system-dist');
 
 module.exports = override(
   addDecoratorsLegacy(),
