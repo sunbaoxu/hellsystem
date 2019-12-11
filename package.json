@@ -2,7 +2,7 @@
   "name": "hellsystem",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sunbaoxu.github.io/hellsystem",
+  "homepage": "https://sunbaoxu.github.io/hellsystem/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
