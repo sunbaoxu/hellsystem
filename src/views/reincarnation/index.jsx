@@ -11,38 +11,49 @@ class Reincarnation extends React.Component{
     super(props);
 
     this.state = {
-      num:360,
-      btnAsync :false
+      btnAsync :false,
+      rotateObj :{},
+      rotateObj1:{},
+      zongNum :0,
+      zongNum1:0
     };
   }
 
   transformFn = ()=>{
-    let random = this.randomFn(0,6);
-    let zongNum = Math.floor(360*10 + random*60);
+    let random = this.randomFn(0,6),
+        random1 = this.randomFn(0,12),
+        zongNum = Math.floor(360*10 + random*60+this.state.zongNum),
+        zongNum1 = Math.floor(this.state.zongNum1 - (360*3 + random1*30));
 
-    this.setState({num:zongNum});
-    // return
+    this.setState({zongNum,zongNum1});
     
     if(this.state.btnAsync) return;
     this.setState({btnAsync:true});
 
 
 
-    // let num =0;
-    // let timer = setInterval(()=>{
-    //   if(num<240){
-    //     num++
-    //     this.setState({num})
-    //   } else{
-    //     clearInterval(timer);
-    //     this.setState({btnAsync:false});
-    //   }
-
-    // },1)
+    this.setState({
+      rotateObj:{
+        'WebkitTransform': `rotate(${zongNum}deg)`,
+        transform: `rotate(${zongNum}deg)`,
+        'WebkitTransitionDuration': '8s',
+        'transitionDuration':'8s',
+        'WebkitTransitionTimingFunction': 'ease',
+        'transitionTimingFunction': 'ease'
+      },
+      rotateObj1:{
+        'WebkitTransform': `rotate(${zongNum1}deg)`,
+        transform: `rotate(${zongNum1}deg)`,
+        'WebkitTransitionDuration': '8s',
+        'transitionDuration':'8s',
+        'WebkitTransitionTimingFunction': 'ease',
+        'transitionTimingFunction': 'ease'
+      }
+    });
 
     setTimeout(()=>{
       this.setState({btnAsync:false});
-    },4000)
+    },8000)
   }
 
   randomFn = (min, max)=> {
@@ -55,17 +66,15 @@ class Reincarnation extends React.Component{
       background:`url(${require('@/assets/img/1.png')}) no-repeat center`
     }
     let backUrl2 ={
-      background:`url(${require('@/assets/img/6.png')}) no-repeat center`,
-      // transform :`rotate(${this.state.num}deg)`,
-      // animation: hide-item 2s ease-in forwards
+      background:`url(${require('@/assets/img/6.png')}) no-repeat center`
     }
 
     return (
       <section className="reincar-nation-wrap" >
         <Row>
           <Col>
-            <div className="reincar-main" style={backUrl}>
-              <div className={["reincar-box",this.state.btnAsync?'dong':''].join(' ')} style={backUrl2}></div>
+            <div className="reincar-main" style={{...backUrl,...this.state.rotateObj1}}>
+              <div className="reincar-box" style={{...backUrl2,...this.state.rotateObj}}></div>
             </div>
           </Col>
         </Row>
