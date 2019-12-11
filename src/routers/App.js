@@ -1,7 +1,7 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
 import loadable from 'loadable-components'
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 // import FrameBox  from '@/views/home/frame';
 const Frame = loadable (()=>import('@/views/home/frame'));
 const Login = loadable (()=>import('@/views/home/login'));
